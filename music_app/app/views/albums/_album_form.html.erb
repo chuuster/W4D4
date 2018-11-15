@@ -1,0 +1,88 @@
+
+<% if thing == 'newalbum' %>
+  <% header_message = "list an album" %>
+  <% action_url = albums_url %>
+  <% name_value = "" %>
+  <% band_value = "" %>
+  <% submit_value = "List!" %>
+  <% selected_value = "" %>
+  <% checked_value = "" %>
+<% elsif thing == 'editalbum' %>
+  <% header_message = "edit an album" %>
+  <% action_url = album_url(album) %>
+  <% name_value = album.name %>
+  <% band_value = "" %>
+  <% submit_value = "Edit!" %>
+  <% selected_value = "selected" %>
+  <% checked_value = 'checked'%>
+<% end  %>
+
+<h1> <%= header_message %> </h1>
+<form class="" action="<%= action_url %>" method="post">
+  <% if thing == 'editalbum' %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Album Name:
+  <input type="text" name="albums[name]" value="<%= name_value %>">
+  </label> <br>
+
+  <label>Band:
+  <select class="" name="albums[band_id]">
+    <option disabled selected>==SELECT A BAND==</option>
+    <% bands.each do |band| %>
+      <option value="<%= band.id %>"
+        <% if thing == 'newalbum' %>
+        <%= "" %>
+        <% elsif band.id == album.band_id %>
+        <%= "selected" %>
+        <% end %>
+        > <%= band.name %> </option>
+    <% end %>
+  </select>
+  </label> <br>
+
+  <label>Studio or Live Album?
+  <input type="radio" name="albums[studio_recording]" value="true"
+    <% if thing == 'newalbum' %>
+    <%= "" %>
+    <% elsif album.studio_recording %>
+    <%= "checked" %>
+    <% end %>
+    > Studio
+  <input type="radio" name="albums[studio_recording]" value="false"
+    <% if thing == 'newalbum' %>
+    <%= "" %>
+    <% elsif album.studio_recording == false %>
+    <%= "checked" %>
+    <% end %>
+   >Live <br>
+  </label>
+
+  <input type="submit" name="" value="<%= submit_value %>">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.....

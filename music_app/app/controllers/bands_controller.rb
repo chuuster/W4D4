@@ -1,13 +1,6 @@
 class BandsController < ApplicationController
-  # bands     GET    /bands(.:format)                       bands#index
-  #           POST   /bands(.:format)                       bands#create
-  # new_band  GET    /bands/new(.:format)                   bands#new
-  # edit_band GET    /bands/:id/edit(.:format)              bands#edit
-  # band      GET    /bands/:id(.:format)                   bands#show
-  #           PATCH  /bands/:id(.:format)                   bands#update
-  #           PUT    /bands/:id(.:format)                   bands#update
-  #           DELETE /bands/:id(.:format)                   bands#destroy
-  #
+  before_action :require_login
+  
   def index
     @bands = Band.all
     render :index
@@ -55,5 +48,11 @@ class BandsController < ApplicationController
   private
   def band_params
     params.require(:bands).permit(:name)
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_session_url
+    end
   end
 end

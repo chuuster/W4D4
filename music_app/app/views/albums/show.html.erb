@@ -1,0 +1,17 @@
+<% album = @album %>
+<% band = @band %>
+
+<h2> Album Name: <%= album.name %> </h2>
+<h2> Band Name: <%= band.name %> </h2>
+
+<a href="<%= edit_album_url %>">Edit album info</a> <br> <br>
+
+<form action="<%= album_url(album) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" name="" value="delete album">
+</form>
+
+<br>
+<br>
+<a href="<%= band_url(band) %>"> Back to the band's page</a>
