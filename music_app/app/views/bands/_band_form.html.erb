@@ -1,0 +1,26 @@
+<% if thing == 'newband' %>
+  <% header_message = "list a band" %>
+  <% action_url = bands_url %>
+  <% name_value = "" %>
+  <% submit_value = "List!" %>
+<% elsif thing == 'editband' %>
+  <% header_message = "edit a band" %>
+  <% action_url = band_url(band) %>
+  <% name_value = band.name %>
+  <% submit_value = "Edit!" %>
+<% end  %>
+
+<h1> <%= header_message %> </h1>
+<form class="" action="<%= action_url %>" method="post">
+  <% if thing == 'editband' %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Band Name:
+  <input type="text" name="bands[name]" value="<%= name_value %>">
+  </label> <br>
+
+  <input type="submit" name="" value="<%= submit_value %>">
+</form>
