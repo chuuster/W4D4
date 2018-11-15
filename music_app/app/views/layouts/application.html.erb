@@ -1,4 +1,7 @@
+
 <!DOCTYPE html>
+
+<%= stylesheet_link_tag "application" %>
 <html>
   <head>
     <title>MusicApp</title>
@@ -10,6 +13,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class = 'logo'> Music App </div>
+      <div class = 'accountstuff'> <% if current_user %>
+          <form class="" action=" <%= session_url %>" method="post">
+            <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" name="" value="Log Out">
+          </form>
+      <% else %>
+        <a href="<%= new_session_url %>"> Log In </a>
+        <a href="<% new_user_url %>"> Sign Up </a>
+      <% end %> </div>
+    </header>
+      <%= yield %>
   </body>
 </html>
