@@ -13,10 +13,43 @@
  *= require_tree .
  *= require_self
  */
+/*
+body {
+  padding: 0px;
+  margin: 0px;
+}
 
-h1 {
+html {
+  background: url(abstract-bg.jpg);
+  background-size: cover;
   font-family: "Lucida Console", Monaco, monospace;
 }
+
+
+h1 {
+  text-align: center;
+}
+
+header {
+  background-color: #7ac5cd;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  background-color: #FFFFFF;
+}
+
+form {
+  background-color: #FFFFFF;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  height: 400px;
+  width: 300px;
+}
+
 
 .logo {
   font-family: "Lucida Console", Monaco, monospace;
@@ -27,4 +60,53 @@ h1 {
 .accountstuff {
   display: flex;
   justify-content: flex-end;
+} */
+
+body {
+  font-family: sans-serif;
+  color: rgb(226, 167, 4);
+  background: url(abstract-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  align-items: center;
+}
+
+h1, h2 {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+form, .bandinfo {
+  width: 300px;
+  margin: auto;
+  border-radius: 3px;
+  border: solid 1px rgb(226, 167, 4);
+  background: rgba(25,25,25,0.5);
+  padding: 50px;
+  margin-top: 50px;
+}
+
+
+input[type="submit"] {
+  background: rgb(226, 167, 4);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background: white;
+  cursor: pointer;
+}
+
+input[type="text"], input[type="password"] {
+  border-radius: 3px;
+  padding:5px;
+}
+
+img {
+  border-radius: 100%;
 }

@@ -15,7 +15,7 @@
   <body>
     <header>
       <h1 class = 'logo'> Music App </h1>
-      <div class = 'accountstuff'> <% if current_user %>
+      <h1 class = 'accountstuff'> <% if current_user %>
           <form class="" action=" <%= session_url %>" method="post">
             <input type="hidden" name="authenticity_token" value="form_authenticity_token">
             <input type="hidden" name="_method" value="delete">
@@ -23,9 +23,11 @@
           </form>
       <% else %>
         <a href="<%= new_session_url %>"> Log In </a>
-        <a href="<% new_user_url %>"> Sign Up </a>
-      <% end %> </div>
+        <a href="<%= new_user_url %>"> Sign Up </a>
+      <% end %> </h1>
     </header>
+      <section>
       <%= yield %>
+      </section>
   </body>
 </html>

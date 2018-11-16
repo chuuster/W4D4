@@ -8,18 +8,18 @@
   <% submit_value = "LOG IN" %>
 <% end  %>
 
-<h1> <%= header_message %> </h1>
 
-<form action="<%= action_url %>" method="post">
+
+<form class="userform" action="<%= action_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label>Email:
   <input type="text" name="users[email]" value="">
-</label> <br>
+</label> <br><br>
 
   <label>Password:
   <input type="password" name="users[password]" value="">
-</label> <br>
+</label> <br><br>
 
   <input type="submit" name="" value="<%= submit_value %>">
 </form>

@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     user = User.create(user_params)
 
     if user.save
-      render json: 'Yay'
+      redirect_to user_url(user)
     else
-      render json: 'No'
+      redirect_to new_user_url
     end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       render :show
     else
       redirect_to new_session_url
-    end 
+    end
   end
 
   private
